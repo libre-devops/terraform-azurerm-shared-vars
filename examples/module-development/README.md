@@ -1,5 +1,15 @@
 ```hcl
-#
+module "shared_vars" {
+  source = "../../"
+}
+
+output "cidrs" {
+  value = module.shared_vars.cidrs
+}
+
+output "management_dev_cidr" {
+  value = module.shared_vars.cidrs.management.dev
+}
 ```
 ## Requirements
 
@@ -9,22 +19,19 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
+| <a name="provider_random"></a> [random](#provider\_random) | 3.6.0 |
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_shared_vars"></a> [shared\_vars](#module\_shared\_vars) | ../../ | n/a |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [azurerm_client_config.current_creds](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) | data source |
-| [azurerm_key_vault.mgmt_kv](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/key_vault) | data source |
-| [azurerm_key_vault_secret.mgmt_local_admin_pwd](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/key_vault_secret) | data source |
-| [azurerm_resource_group.mgmt_rg](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/resource_group) | data source |
-| [azurerm_ssh_public_key.mgmt_ssh_key](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/ssh_public_key) | data source |
-| [azurerm_user_assigned_identity.mgmt_user_assigned_id](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/user_assigned_identity) | data source |
+| [random_string.entropy](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
 
 ## Inputs
 
@@ -37,4 +44,7 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_cidrs"></a> [cidrs](#output\_cidrs) | n/a |
+| <a name="output_management_dev_cidr"></a> [management\_dev\_cidr](#output\_management\_dev\_cidr) | n/a |
