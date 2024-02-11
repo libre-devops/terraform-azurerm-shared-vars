@@ -9,7 +9,7 @@ variable "cidrs" {
     }))
   })
   description = "A variable which helps store CIDRs"
-  default     = {
+  default = {
     management = {
       prd = ["10.0.0.0/22"]
       ppd = ["10.4.0.0/22"]
