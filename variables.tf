@@ -14,6 +14,13 @@ variable "cidrs" {
       tst = optional(list(string))
       dev = optional(list(string))
     }))
+    libd = optional(object({
+      prd = optional(list(string))
+      ppd = optional(list(string))
+      uat = optional(list(string))
+      tst = optional(list(string))
+      dev = optional(list(string))
+    }))
   })
   description = "A variable which helps store CIDRs"
   default = {
